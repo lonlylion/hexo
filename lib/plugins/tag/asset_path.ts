@@ -1,5 +1,3 @@
-'use strict';
-
 import {resolve} from 'url';
 import {encodeURL} from 'hexo-util';
 
