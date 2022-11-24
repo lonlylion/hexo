@@ -7,7 +7,7 @@ import {resolve} from 'url';
  * Syntax:
  *   {% asset_link slug [title] [escape] %}
  */
-export default ctx => {
+export = ctx => {
   const PostAsset = ctx.model('PostAsset');
 
   return function assetLinkTag(args) {

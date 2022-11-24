@@ -464,4 +464,4 @@ class Post {
   }
 }
 
-export default Post;
+export = Post;
