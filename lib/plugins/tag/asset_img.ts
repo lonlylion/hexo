@@ -1,4 +1,3 @@
-import {resolve} from 'url';
 import img from './img';
 import {encodeURL} from 'hexo-util';
 
@@ -18,7 +17,7 @@ export = ctx => {
     for (let i = 0; i < len; i++) {
       const asset = PostAsset.findOne({post: this._id, slug: args[i]});
       if (asset) {
-        args[i] = encodeURL(resolve('/', asset.path));
+        args[i] = encodeURL(new URL(asset.path, ctx.config.url).pathname);
         return img(ctx)(args);
       }
     }

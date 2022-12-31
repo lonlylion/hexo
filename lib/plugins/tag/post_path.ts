@@ -1,4 +1,3 @@
-import {resolve} from 'url';
 import {encodeURL} from 'hexo-util';
 import {postFindOneFactory} from './';
 
@@ -17,7 +16,7 @@ export = ctx => {
     const post = factory({ slug }) || factory({ title: slug });
     if (!post) return;
 
-    const link = encodeURL(resolve(ctx.config.root, post.path));
+    const link = encodeURL(new URL(post.path, ctx.config.url).pathname);
 
     return link;
   };

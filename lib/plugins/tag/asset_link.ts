@@ -1,5 +1,4 @@
 import {encodeURL, escapeHTML} from 'hexo-util';
-import {resolve} from 'url';
 
 /**
  * Asset link tag
@@ -28,7 +27,7 @@ export = ctx => {
     const attrTitle = escapeHTML(title);
     if (escape === 'true') title = attrTitle;
 
-    const link = encodeURL(resolve(ctx.config.root, asset.path));
+    const link = encodeURL(new URL(asset.path, ctx.config.url).pathname);
 
     return `<a href="${link}" title="${attrTitle}">${title}</a>`;
   };

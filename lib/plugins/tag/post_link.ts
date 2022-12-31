@@ -1,5 +1,4 @@
 import {encodeURL, escapeHTML} from 'hexo-util';
-import {resolve} from 'url';
 import {postFindOneFactory} from './';
 
 /**
@@ -33,7 +32,7 @@ export = ctx => {
     const attrTitle = escapeHTML(post.title);
     if (escape === 'true') title = escapeHTML(title);
 
-    const link = encodeURL(resolve(ctx.config.root, post.path));
+    const link = encodeURL(new URL(post.path, ctx.config.url).pathname);
 
     return `<a href="${link}" title="${attrTitle}">${title}</a>`;
   };

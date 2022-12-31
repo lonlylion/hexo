@@ -1,4 +1,3 @@
-import {resolve} from 'url';
 import {encodeURL} from 'hexo-util';
 
 /**
@@ -17,7 +16,7 @@ export = ctx => {
     const asset = PostAsset.findOne({post: this._id, slug});
     if (!asset) return;
 
-    const path = encodeURL(resolve(ctx.config.root, asset.path));
+    const path = encodeURL(new URL(asset.path, ctx.config.url).pathname);
 
     return path;
   };
