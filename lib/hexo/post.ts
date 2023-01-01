@@ -226,6 +226,7 @@ interface Data {
   content?: string;
   disableNunjucks?: boolean;
   markdown?: object;
+  source?: string;
 }
 
 class Post {
